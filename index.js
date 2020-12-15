@@ -3,6 +3,8 @@ const express = require('express')
   , multer = require('multer')
   , path = require('path')
 
+const porta = process.env.PORT || 5000
+
 // cria uma instância do middleware configurada
 // destination: lida com o destino
 // filenane: permite definir o nome do arquivo gravado
@@ -28,4 +30,4 @@ app.use(express.static('public'));
 app.post('/file/upload', upload.single('file'), 
     (req, res) => res.send('<h2>Upload realizado com sucesso</h2>'));  
 
-app.listen(3000, () => console.log('App na porta 3000'));
+app.listen(porta, () => console.log(`App na porta ${porta}`));
